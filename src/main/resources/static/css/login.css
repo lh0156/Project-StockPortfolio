@@ -1,0 +1,18 @@
+#btnSignUp {
+    background-color: #81c147;
+    margin-top: 20px;
+    padding: 10px 20px;
+}
+
+#btnLogin {
+    background-color: #1d1f33;
+    padding: 10px 20px;
+}
+
+#button:hover {
+    background-color: #101222;
+}
+
+#SignUpView {
+    height: 40px;
+}
