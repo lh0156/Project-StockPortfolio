@@ -2,6 +2,7 @@ package seop.com.stockportfolio.login.service;
 
 public interface LoginService {
 
-    boolean isKorean(String name);
+    boolean isNotKorean(String name);
+    boolean isNotPhoneNumber(String phoneNumber);
 
 }
