@@ -27,10 +27,10 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String loginRequest(@ModelAttribute Member member) {
-        log.info("id: {}", member.getId());
-        log.info("password: {}", member.getPassword());
-        log.info("phoneNumber: {}", member.getPhoneNumber());
+    public String loginRequest(String id, String password, String phoneNumber) {
+        log.info("id: {}", id);
+        log.info("password: {}", password);
+        log.info("phoneNumber: {}", phoneNumber);
 
         return "redirect:/login";
     }
