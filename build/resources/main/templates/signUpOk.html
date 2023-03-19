@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <link th:href="@{/css/global.css}" rel="stylesheet">
+    <link th:href="@{/css/signUp.css}" rel="stylesheet">
+</head>
+<body>
+<form th:action="@{/signUp}" method="post">
+    <h1>회원 가입 완료</h1>
+    <div class="input-group">
+        <br>
+        <p th:text="${id} + '님 회원가입을 축하합니다!'"></p>
+    </div>
+
+    <div id="backView">
+        <a th:href="@{/login}"><button id="btnBack" type="button">로그인 화면으로</button></a>
+    </div>
+
+</form>
+</body>
+</html>
