@@ -6,6 +6,7 @@
 - 회원가입 기능 구현 완료
 - erd 주식, 멤버 테이블 구현 완료(TODO: 코인)
 
+```mermaid
 erDiagram
     MEMBER {
         string id
@@ -30,3 +31,4 @@ erDiagram
 
     MEMBER ||--|{ MEMBER_STOCK : "다대 다 관계"
     STOCK ||--|{ MEMBER_STOCK : "다대 다 관계"
+```
