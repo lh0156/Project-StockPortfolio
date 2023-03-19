@@ -30,3 +30,4 @@ erDiagram
 
     MEMBER ||--|| MEMBER_STOCK
     STOCK ||--|| MEMBER_STOCK
+```
