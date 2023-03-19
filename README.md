@@ -5,6 +5,7 @@
 - 로그인 기능 구현 완료
 - 회원가입 기능 구현 완료
 - erd 주식, 멤버 테이블 구현 완료(TODO: 코인)
+```mermaid
 erDiagram
     MEMBER {
         string id
