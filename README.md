@@ -14,7 +14,7 @@ erDiagram
         string password
     }
     STOCK {
-        int id
+        Long id
         string name
         double price
         date purchaseDate
@@ -22,7 +22,7 @@ erDiagram
     }
     MEMBER_STOCK {
         string member_id
-        int stock_id
+        Long stock_id
         double purchasePrice
         date purchaseDate
         int quantity
@@ -30,4 +30,6 @@ erDiagram
 
     MEMBER ||--|| MEMBER_STOCK
     STOCK ||--|| MEMBER_STOCK
+
+
 ```
