@@ -5,6 +5,6 @@ import seop.com.stockportfolio.member.domain.entity.Member;
 
 public interface MemberRepository extends JpaRepository <Member, String> {
 
-    String findOneById(String id);
+    Member findOneById(String id);
 
 }

@@ -11,14 +11,8 @@ import seop.com.stockportfolio.member.service.MemberService;
 @Service
 public class MemberServiceImpl implements MemberService {
 
-    // 99% 생성자 주입이 좋다
     private final MemberRepository memberRepository;
 
-
-
-
-
-//    private final MemberRepository memberRepository;
 
     @Override
     public void save(Member member) {
@@ -26,7 +20,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public String findOneById(String id) {
+    public Member findOneById(String id) {
         return memberRepository.findOneById(id);
     }
 }

@@ -32,7 +32,8 @@ public class SignUpController {
                                       String phoneNumber,
                                       Model model) {
 
-        ModelAndView modelAndView = new ModelAndView(); boolean isErrorFlag = false;
+        ModelAndView modelAndView = new ModelAndView();
+        boolean isErrorFlag = false;
 
 //        if(password.equals(passwordOk)) {
 //            modelAndView.addObject("errorMessage_password", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
@@ -40,14 +41,14 @@ public class SignUpController {
 //
 //            isErrorFlag = true;
 //        }
-
+//
 //        if (signUpService.isNotKorean(name) || name.length() >= 10) {
 //            modelAndView.addObject("errorMessage_name", "이름에 한글 이외의 언어가 들어가거나 10자 이상입니다.");
 //            modelAndView.addObject("signUp");
 //
 //            isErrorFlag = true;
 //        }
-
+//
 //        if (signUpService.isNotPhoneNumber(phoneNumber)) {
 //            modelAndView.addObject("errorMessage_phoneNumber", "전화번호가 유효하지 않습니다.");
 //            modelAndView.addObject("signUp");
@@ -55,9 +56,14 @@ public class SignUpController {
 //            isErrorFlag = true;
 //        }
 
-        if (isErrorFlag) { return modelAndView; }
+        if (isErrorFlag) {
+            return modelAndView;
+        }
 
-        memberService.save(new Member(name, password, phoneNumber)); model.addAttribute("id", id + "님 환영합니다!"); modelAndView.setViewName("signUpOk"); return modelAndView;
+        memberService.save(new Member(id, name, password, phoneNumber));
+        model.addAttribute("id", id);
+        modelAndView.setViewName("signUpOk");
+        return modelAndView;
     }
 
 }

@@ -30,8 +30,9 @@ public class Member {
     @JoinColumn(name = "stock_name")
     private Stock stock;
 
-    public Member(String id, String password, String phoneNumber) {
+    public Member(String id, String name, String password, String phoneNumber) {
         this.id = id;
+        this.name = name;
         this.password = password;
         this.phoneNumber = phoneNumber;
     }

@@ -5,6 +5,6 @@ import seop.com.stockportfolio.member.domain.entity.Member;
 public interface MemberService {
 
     void save(Member member);
-    String findOneById(String id);
+    Member findOneById(String id);
 
 }
