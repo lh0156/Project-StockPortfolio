@@ -1,0 +1,34 @@
+.container {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150vh;
+    height: 90vh;
+    margin: 0;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+.header {
+    background-color: #81c147;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+
+.chart {
+    width: 80%;
+    height: 80%;
+    margin-top: 30px;
+    /* 차트를 보여줄 컨테이너 스타일링 */
+}

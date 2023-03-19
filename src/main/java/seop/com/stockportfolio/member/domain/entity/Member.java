@@ -6,7 +6,9 @@ import seop.com.stockportfolio.stock.domain.entity.Stock;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Entity
@@ -26,9 +28,8 @@ public class Member {
     @Column
     private String phoneNumber;
 
-    @ManyToOne
-    @JoinColumn(name = "stock_name")
-    private Stock stock;
+    @ManyToMany
+    private Set<Stock> stocks = new HashSet<>();
 
     public Member(String id, String name, String password, String phoneNumber) {
         this.id = id;
