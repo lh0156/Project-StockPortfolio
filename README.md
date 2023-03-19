@@ -5,7 +5,7 @@
 - 로그인 기능 구현 완료
 - 회원가입 기능 구현 완료
 - erd 주식, 멤버 테이블 구현 완료(TODO: 코인)
-```mermaid
+
 erDiagram
     MEMBER {
         string id
@@ -14,7 +14,7 @@ erDiagram
         string password
     }
     STOCK {
-        Long id
+        int id
         string name
         double price
         date purchaseDate
@@ -22,14 +22,11 @@ erDiagram
     }
     MEMBER_STOCK {
         string member_id
-        Long stock_id
+        int stock_id
         double purchasePrice
         date purchaseDate
         int quantity
     }
 
-    MEMBER ||--|| MEMBER_STOCK
-    STOCK ||--|| MEMBER_STOCK
-
-
-```
+    MEMBER ||--|{ MEMBER_STOCK : "다대 다 관계"
+    STOCK ||--|{ MEMBER_STOCK : "다대 다 관계"
