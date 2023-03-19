@@ -14,9 +14,11 @@ import seop.com.stockportfolio.member.domain.dto.request.MemberParam;
 import seop.com.stockportfolio.member.domain.entity.Member;
 import seop.com.stockportfolio.member.repository.MemberRepository;
 import seop.com.stockportfolio.member.service.MemberService;
+import seop.com.stockportfolio.stock.domain.entity.Stock;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Set;
 
 @Controller
 @Slf4j
@@ -45,8 +47,17 @@ public class LoginController {
         if(member!=null && member.getPassword().equals(password)) {
             HttpSession session = request.getSession();
             session.setAttribute("member", member);
-            // 메인 페이지로 이동
-            return new ModelAndView("redirect:/main");
+
+            // 해당 멤버가 가지고 있는 stock이 있는지 확인
+            Set<Stock> stocks = member.getStocks();
+            if (stocks.isEmpty()) {
+                // 주식 입력 페이지로 이동
+                return new ModelAndView("redirect:/inputStock");
+            } else {
+                // 메인 페이지로 이동
+                return new ModelAndView("redirect:/main");
+            }
+
         } else {
             // 로그인 실패 시, 로그인 화면으로 이동하면서 실패 메시지 전달
             ModelAndView mav = new ModelAndView("login");
