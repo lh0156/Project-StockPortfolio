@@ -3,12 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Input Stock</title>
-    <link th:href="@{/css/login.css}" rel="stylesheet">
+    <link th:href="@{/css/inputStock.css}" rel="stylesheet">
     <link th:href="@{/css/global.css}" rel="stylesheet">
 </head>
 <body>
+<form th:action="@{/main}" method="post">
     <div class="header">
         <h1>주식 입력</h1>
     </div>
+
+    <label for="selectedStockList">주식 선택</label>
+    <input type="text" list="stockNameList" name="selectedStockList" id="selectedStockList" style="width: 100px">
+    <datalist id="stockNameList">
+        <option th:each="symbol : ${#strings.split(stockNameListJson, ',')}" th:value="${symbol}" th:text="${symbol}"></option>
+    </datalist>
+</form>
+<script>
+    let stockNameList = JSON.parse([[${stockNameListJson}]]);
+    let input = document.getElementById("selectedStockList");
+    let dataList = document.getElementById("stockNameList");
+
+    stockNameList.forEach(function(symbol) {
+        let option = document.createElement("option");
+        option.value = symbol;
+        dataList.appendChild(option);
+    });
+
+    input.addEventListener("input", function(event) {
+        let value = event.target.value;
+        let options = dataList.querySelectorAll("option");
+        options.forEach(function(option) {
+            if (option.value.indexOf(value) !== -1) {
+                option.style.display = "block";
+            } else {
+                option.style.display = "none";
+            }
+        });
+    });
+</script>
 </body>
 </html>

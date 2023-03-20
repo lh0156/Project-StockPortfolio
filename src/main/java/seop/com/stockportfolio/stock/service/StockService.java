@@ -11,6 +11,7 @@ import seop.com.stockportfolio.stock.domain.dto.request.StockInfo;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -28,14 +29,11 @@ public class StockService {
     public List<String> getAllStockSymbol() throws IOException {
         String url = "https://finnhub.io/api/v1/stock/symbol?exchange=US&token=" + FinnHubConfig.getPublicKey();
         String response = restTemplate.getForObject(url, String.class);
-        List<StockInfo> stockInfoList = objectMapper.readValue(response, new TypeReference<List<StockInfo>>() {});
-        List<String> stockSymbolList = new ArrayList<>();
 
-        for (StockInfo stockInfo : stockInfoList) {
-            stockSymbolList.add(stockInfo.getSymbol());
-        }
+        return objectMapper.readValue(response, new TypeReference<List<StockInfo>>() {})
+                .stream().map(StockInfo :: getSymbol)
+                .collect(Collectors.toList());
 
-        return stockSymbolList;
     }
 
 }

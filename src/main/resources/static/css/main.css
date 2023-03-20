@@ -26,6 +26,14 @@ h1 {
     margin: 0;
 }
 
+form {
+    background-color: white;
+    width: 400px;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
 .chart {
     width: 80%;
     height: 80%;

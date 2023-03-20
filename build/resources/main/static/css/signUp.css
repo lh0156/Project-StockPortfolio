@@ -11,6 +11,14 @@
     height: 10px;
 }
 
+form {
+    background-color: white;
+    width: 400px;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
 #btnSignUp {
     background-color: #1d1f33;
     padding: 0 20px;
