@@ -31,9 +31,9 @@ public class StockController {
         StockSelectionForm selectedStockList = new StockSelectionForm();
         selectedStockList.setSelectedStocks(new ArrayList<>());
 
-        String stockNameListJson = objectMapper.writeValueAsString(stockInfoList);
+//        String stockNameListJson = objectMapper.writeValueAsString(stockInfoList);
 
-        model.addAttribute("stockNameListJson", stockNameListJson);
+        model.addAttribute("stockInfoList", stockInfoList);
         model.addAttribute("selectedStockList", selectedStockList);
 
         return "inputStock";

@@ -15,31 +15,9 @@
     <label for="selectedStockList">주식 선택</label>
     <input type="text" list="stockNameList" name="selectedStockList" id="selectedStockList" style="width: 100px">
     <datalist id="stockNameList">
-        <option th:each="symbol : ${#strings.split(stockNameListJson, ',')}" th:value="${symbol}" th:text="${symbol}"></option>
+        <option th:each="symbol : ${stockInfoList}" th:value="${symbol}" th:text="${symbol}"></option>
     </datalist>
 </form>
-<script>
-    let stockNameList = JSON.parse([[${stockNameListJson}]]);
-    let input = document.getElementById("selectedStockList");
-    let dataList = document.getElementById("stockNameList");
 
-    stockNameList.forEach(function(symbol) {
-        let option = document.createElement("option");
-        option.value = symbol;
-        dataList.appendChild(option);
-    });
-
-    input.addEventListener("input", function(event) {
-        let value = event.target.value;
-        let options = dataList.querySelectorAll("option");
-        options.forEach(function(option) {
-            if (option.value.indexOf(value) !== -1) {
-                option.style.display = "block";
-            } else {
-                option.style.display = "none";
-            }
-        });
-    });
-</script>
 </body>
 </html>
