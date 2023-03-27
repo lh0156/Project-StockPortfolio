@@ -1,13 +1,20 @@
 form {
+    width: 480px;
+    height: 400px;
     background-color: white;
-    width: 1000px;
-    height: 600px;
-    border-radius: 8px;
-    padding: 40px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-button {
-    background-color: #1d1f33;
-    padding: 10px 20px;
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stock-label {
+    font-size: 30px;
+}
+
+input {
+    width: 100px;
+    height: 50px;
 }

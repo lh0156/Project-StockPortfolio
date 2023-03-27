@@ -12,11 +12,21 @@
         <h1>주식 입력</h1>
     </div>
 
-    <label for="selectedStockList">주식 선택</label>
-    <input type="text" list="stockNameList" name="selectedStockList" id="selectedStockList" style="width: 100px">
-    <datalist id="stockNameList">
-        <option th:each="symbol : ${stockInfoList}" th:value="${symbol}" th:text="${symbol}"></option>
-    </datalist>
+    <div class="body">
+        <label for="selectedStockList" class="stock-label">주식 선택</label>
+        <input type="text" list="stockNameList" name="selectedStockList" id="selectedStockList" style="width: 100px">
+        <datalist id="stockNameList">
+            <option th:each="symbol : ${stockInfoList}" th:value="${symbol}" th:text="${symbol}"></option>
+        </datalist>
+
+        <label for="selectedStockList" class="stock-label">매입 가격</label>
+        <input type="text" name="buy_price" id="buy_price" style="width: 100px">
+
+        <label for="selectedStockList" class="stock-label">주식량</label>
+        <input type="text" name="stock_count" id="stock_count" style="width: 100px">
+
+        <input type="submit" value="입력">
+    </div>
 </form>
 
 </body>
